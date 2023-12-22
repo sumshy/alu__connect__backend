@@ -1,4 +1,4 @@
-// /backend/index.js
+
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -16,7 +16,7 @@ app.use(cors({ credentials: true, origin: "*" }));
 
 
 
-// Your existing routes
+
 app.use("/events", eventsRouter);
 app.use("/about-us", aboutUsRouter);
 app.use('/auth', authRouter);

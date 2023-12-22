@@ -1,4 +1,4 @@
-// routes/events.js
+
 import express from "express";
 import {
   createEvents,
@@ -18,6 +18,6 @@ router.get("/recent", getLatestEvents);
 router.get("/:id", getEventById);
 router.put("/:id", updateEvent);
 router.delete("/:id", deleteEvent);
-router.post("/:eventId/attend", attendEvent); // New route for attending events
+router.post("/:eventId/attend", attendEvent); 
 
 export default router;

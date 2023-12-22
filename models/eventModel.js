@@ -23,11 +23,7 @@ const eventSchema = mongoose.Schema({
     enum: ["professional development", "networking", "campus events"],
     required: true,
   },
-  // organizer: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "User", // Assuming you have a User model for alumni students
-  //   required: true,
-  // },
+  
   organizer: {
     type: String,
     required: true,

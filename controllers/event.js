@@ -88,15 +88,15 @@ export const attendEvent = async (req, res) => {
       return res.status(404).json({ message: "Event not found" });
     }
 
-    // Find the user (you may need to implement user authentication)
-    const { userId } = req.body; // Assuming you have a userId in your request
+    
+    const { userId } = req.body; 
     const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Add the user to the event's attendees list
+  
     event.attendees.push(userId);
     await event.save();
 
