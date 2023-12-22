@@ -1,8 +1,7 @@
-
 //CRUD OPERATIONS
 import express from "express";
 import Event from "../models/eventModel.js";
-//import sendEmail from "../utils/email.js";
+// import sendEmail from "../utils/email.js";
 import User from "../models/user.js";
 
 export const createEvents = async (req, res) => {
@@ -79,7 +78,6 @@ export const deleteEvent = async (req, res) => {
   }
 };
 
-
 // New function for attending events and sending emails
 export const attendEvent = async (req, res) => {
   try {
@@ -91,8 +89,7 @@ export const attendEvent = async (req, res) => {
     }
 
     // Find the user (you may need to implement user authentication)
-    const userId = req.userId; // Assuming you have a userId in your request
-
+    const { userId } = req.body; // Assuming you have a userId in your request
     const user = await User.findById(userId);
 
     if (!user) {
@@ -107,7 +104,7 @@ export const attendEvent = async (req, res) => {
     const subject = `You are attending the event: ${event.title}`;
     const message = `Dear ${user.name},\n\nYou have successfully registered for the event: ${event.title}.\n\nEvent details:\nDate: ${event.date}\nLocation: ${event.location}\n\nThank you for attending!`;
 
-    await sendEmail(user.email, subject, message);
+    // await sendEmail(user.email, subject, message);
 
     res.status(200).json({ message: "Attendance recorded and email sent" });
   } catch (error) {

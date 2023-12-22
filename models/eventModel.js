@@ -32,6 +32,10 @@ const eventSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  attendees: {
+    type: [String],
+    default: [],
+  },
 });
 
 const Event = mongoose.model("events", eventSchema);
